@@ -58,33 +58,34 @@ public class NeighborhoodLibrary {
         for (int i = 0; i < numOfBooks; i++) {
             if (books[i].getIsCheckedOut() == false) {
                 System.out.println("Book: " + "\"" + books[i].getTitle() + "\", ID: " + books[i].getId() +
-                        ", ISBN: " + books[i].getIsbn() + " is available. \n");
+                        ", ISBN: " + books[i].getIsbn() + ", is available. \n");
             }
         }
     }
 
-    public static String checkingOutBook(){
+    public static void checkingOutBook() {
         System.out.println("Would you like to check out a book?\n Yes or No");
         String choice = scanner.nextLine().trim();
 
-        if(choice.equalsIgnoreCase("yes")){
+        if (choice.equalsIgnoreCase("yes")) {
             System.out.println("Enter your name for checkout: ");
             String name = scanner.nextLine().trim();
             System.out.println("Enter the title of the book you want to check out:");
             String title = scanner.nextLine();
 
-            for(int b = 0; b < numOfBooks; b++){
-                if(books[b].getTitle().equalsIgnoreCase(title)){
+            for (int b = 0; b < numOfBooks; b++) {
+                if (books[b].getTitle().equalsIgnoreCase(title)) {
                     books[b].checkOut(name);
                 }
             }
 
-        }else{
-            System.out.println("Goodbye!");
-            return(checkingOutBook());
+        } else if(choice.equalsIgnoreCase("no")) {
+            System.out.println("Rerouting you to the main screen...");
+        } else{
+            System.out.println("Learn to follow directions, bud. \n Sending you back to " +
+                    "main screen...");
         }
     }
-
 
 
     public static void unavailableBooks() {
@@ -102,15 +103,16 @@ public class NeighborhoodLibrary {
         System.out.println("Would you like to: \n C - Check In a book \n X - Go back to Home Screen");
         char choice = scanner.next().toUpperCase().charAt(0);
         scanner.nextLine();
-        return choice;
-        if(choice == C) {
+        //char. have to be wrapped in single quatations
+        if (choice == 'C') {
             System.out.println("What's the ID of the book you want to check in?");
 
-        } else if (choice == X) {
-            return(options());
-        }else{
+        } else if (choice == 'X') {
+
+        } else {
             System.out.println("Read the instructions, bozo");
         }
+        return (options());
     }
 
 
