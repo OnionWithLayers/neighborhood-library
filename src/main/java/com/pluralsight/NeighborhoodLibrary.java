@@ -6,9 +6,9 @@ public class NeighborhoodLibrary {
     private static Book[] books = new Book[20];
 
     private static int numOfBooks = 5;
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
 
         books[0] = new Book(0301, "132", "WompWomp", true, "Ranch");
@@ -19,22 +19,26 @@ public class NeighborhoodLibrary {
 
         while (true) {
 
-            System.out.println("Digital Library Home Screen   ^ u ^");
+            System.out.println("Digital Library Home Screen   ^ u ^\n");
             System.out.println("What would you like to do?");
             System.out.println("1 - Show Available Books");
             System.out.println("2 - Show Books Checked Out");
-            System.out.println("3 - Exit the program");
+            System.out.println("3 - Exit the program\n");
             System.out.println("Awaiting user input: ");
             int userInput = scanner.nextInt();
             scanner.nextLine();
-
+            System.out.println("\n");
 
             switch (userInput) {
                 case 1:
                     availableBooks();
+                    System.out.println("\nRerouting to Home Screen...\n");
                     break;
                 case 2:
-
+                    unavailableBooks();
+                    options();
+//                    System.out.println("\nRerouting to Home Screen...\n");
+                    break;
                 case 3:
                     System.out.println("Hope you have a great day! Goodbye!");
                     return;
@@ -52,18 +56,37 @@ public class NeighborhoodLibrary {
     public static void availableBooks() {
         for (int i = 0; i < numOfBooks; i++) {
             if (books[i].getIsCheckedOut() == false) {
-                System.out.println("\n Book: " + "\"" + books[i].getTitle() + "\", ID: " + books[i].getId() +
+                System.out.println("Book: " + "\"" + books[i].getTitle() + "\", ID: " + books[i].getId() +
                         ", ISBN: " + books[i].getIsbn() + " is available. \n");
             }
         }
     }
 
-    public static void unavailableBooks(){
-        for (int a = 0; a < numOfBooks; a++){
-            if(books[a].getIsCheckedOut()){
-                System.out.println();
+    public static void unavailableBooks() {
+        for (int a = 0; a < numOfBooks; a++) {
+            if (books[a].getIsCheckedOut()) {
+                System.out.println("The book: \"" + books[a].getTitle() + "\", ID: " + books[a].getId() +
+                        ", ISBN: " + books[a].getIsbn() + ", is currently in the possession of: " +
+                        books[a].getCheckedOutTo() + "\n");
             }
         }
     }
+
+    public static char options() {
+
+        System.out.println("Would you like to: \n C - Check In a book \n X - Go back to Home Screen");
+        char choice = scanner.next().toUpperCase().charAt(0);
+        scanner.nextLine();
+        return choice;
+        if(choice == C) {
+            System.out.println("What's the ID of the book you want to check in?");
+
+        } else if (choice == X) {
+            return();
+        }else{
+            System.out.println("Read the instructions, bozo");
+        }
+    }
+
 
 }
