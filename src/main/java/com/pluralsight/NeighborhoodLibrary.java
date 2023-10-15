@@ -29,27 +29,41 @@ public class NeighborhoodLibrary {
             scanner.nextLine();
 
 
-
-
-
-           /* switch (userInput) {
+            switch (userInput) {
                 case 1:
+                    availableBooks();
+                    break;
+                case 2:
+
+                case 3:
+                    System.out.println("Hope you have a great day! Goodbye!");
+                    return;
+
+
             }
         }
 
 
-            boolean checkedOut
-        }
-*/
-        }
-//make a method that makes it so if the book is checked out, it prints that book
-        public static void checkedOutBooks(Book[] books, int numOfBooks){
-            for(int i = 0; i < numOfBooks; i++){
-                if(books[i].getCheckedOutTo() = false){
-                    System.out.println(books[i],);
-                }
-            }
+    }
 
+    //make a method that makes it so if the book is checked out, it prints that book
+    //void bc we dont need to save the info; check a book-list called books
+    //NEEDS TO BE OUTSIDE OF MAIN
+    public static void availableBooks() {
+        for (int i = 0; i < numOfBooks; i++) {
+            if (books[i].getIsCheckedOut() == false) {
+                System.out.println("\n Book: " + "\"" + books[i].getTitle() + "\", ID: " + books[i].getId() +
+                        ", ISBN: " + books[i].getIsbn() + " is available. \n");
+            }
         }
     }
+
+    public static void unavailableBooks(){
+        for (int a = 0; a < numOfBooks; a++){
+            if(books[a].getIsCheckedOut()){
+                System.out.println();
+            }
+        }
+    }
+
 }
