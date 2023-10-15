@@ -32,7 +32,8 @@ public class NeighborhoodLibrary {
             switch (userInput) {
                 case 1:
                     availableBooks();
-                    System.out.println("\nRerouting to Home Screen...\n");
+                    checkingOutBook();
+//                    System.out.println("\nRerouting to Home Screen...\n");
                     break;
                 case 2:
                     unavailableBooks();
@@ -62,6 +63,30 @@ public class NeighborhoodLibrary {
         }
     }
 
+    public static String checkingOutBook(){
+        System.out.println("Would you like to check out a book?\n Yes or No");
+        String choice = scanner.nextLine().trim();
+
+        if(choice.equalsIgnoreCase("yes")){
+            System.out.println("Enter your name for checkout: ");
+            String name = scanner.nextLine().trim();
+            System.out.println("Enter the title of the book you want to check out:");
+            String title = scanner.nextLine();
+
+            for(int b = 0; b < numOfBooks; b++){
+                if(books[b].getTitle().equalsIgnoreCase(title)){
+                    books[b].checkOut(name);
+                }
+            }
+
+        }else{
+            System.out.println("Goodbye!");
+            return(checkingOutBook());
+        }
+    }
+
+
+
     public static void unavailableBooks() {
         for (int a = 0; a < numOfBooks; a++) {
             if (books[a].getIsCheckedOut()) {
@@ -82,7 +107,7 @@ public class NeighborhoodLibrary {
             System.out.println("What's the ID of the book you want to check in?");
 
         } else if (choice == X) {
-            return();
+            return(options());
         }else{
             System.out.println("Read the instructions, bozo");
         }
