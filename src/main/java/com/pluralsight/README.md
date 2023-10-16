@@ -1,3 +1,3 @@
 This project is the neighborhood-library project. There's a main menu where you can choose 1 of 3 options: 1) show available books you can check out, 2) see checked out books and return a book, and 3) to close the program.![Screenshot 2023-10-16 184948](https://github.com/OnionWithLayers/neighborhood-library/assets/146871203/c577d527-870c-4c39-9377-0e73c868618d)
-![Screenshot 2023-10-16 185114](https://github.com/OnionWithLayers/neighborhood-library/assets/146871203/01bf023b-c5f7-43ba-8cc1-c31149d1d325)![Screenshot 2023-10-16 185323](https://github.com/OnionWithLayers/neighborhood-library/assets/146871203/e68e30e6-a14c-4fbc-bf82-2774084d9f43)
+![Screenshot 2023-10-16 185114](https://github.com/OnionWithLayers/neighborhood-library/assets/146871203/e68e30e6-a14c-4fbc-bf82-2774084d9f43)
 ![Screenshot 2023-10-16 185450](https://github.com/OnionWithLayers/neighborhood-library/assets/146871203/932c9054-5979-4309-b4e8-024a593d58da)
