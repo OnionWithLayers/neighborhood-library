@@ -98,22 +98,27 @@ public class NeighborhoodLibrary {
         }
     }
 
-    public static char options() {
+    public static void options() {
 
         System.out.println("Would you like to: \n C - Check In a book \n X - Go back to Home Screen");
         char choice = scanner.next().toUpperCase().charAt(0);
         scanner.nextLine();
-        //char. have to be wrapped in single quatations
+        //char. have to be wrapped in single quotations
         if (choice == 'C') {
             System.out.println("What's the ID of the book you want to check in?");
+            int id = scanner.nextInt();
+            scanner.nextLine();
 
+            for(int i = 0; i < numOfBooks; i++){
+                if(id == books[i].getId()){
+                    books[i].checkIn();
+                }
+            }
         } else if (choice == 'X') {
+            System.out.println("Rerouting to main screen...");
 
         } else {
             System.out.println("Read the instructions, bozo");
         }
-        return (options());
     }
-
-
 }
