@@ -31,11 +31,13 @@ public class NeighborhoodLibrary {
 
             switch (userInput) {
                 case 1:
+                    System.out.println("Available books: \n");
                     availableBooks();
                     checkingOutBook();
 //                    System.out.println("\nRerouting to Home Screen...\n");
                     break;
                 case 2:
+                    System.out.println("Checked out books: \n");
                     unavailableBooks();
                     options();
 //                    System.out.println("\nRerouting to Home Screen...\n");
@@ -58,7 +60,7 @@ public class NeighborhoodLibrary {
         for (int i = 0; i < numOfBooks; i++) {
             if (books[i].getIsCheckedOut() == false) {
                 System.out.println("Book: " + "\"" + books[i].getTitle() + "\", ID: " + books[i].getId() +
-                        ", ISBN: " + books[i].getIsbn() + ", is available. \n");
+                        ", ISBN: " + books[i].getIsbn() + "\n");
             }
         }
     }
@@ -118,7 +120,7 @@ public class NeighborhoodLibrary {
             System.out.println("Rerouting to main screen...");
 
         } else {
-            System.out.println("Read the instructions, bozo");
+            System.out.println("Read the options, bozo");
         }
     }
 }
